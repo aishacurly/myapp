@@ -26,11 +26,13 @@ jobs:
 
     - name: Build and push Docker image
       run: |
-        docker build -t myapp:latest .
-        docker tag myapp:latest 450963613371.dkr.ecr.eu-west-2.amazonaws.com/myapp:latest
-        docker push 450963613371.dkr.ecr.eu-west-2.amazonaws.com/myapp:latest
+        IMAGE_TAG=${{ github.sha }}
+        docker build -t myapp:$IMAGE_TAG .
+        docker tag myapp:$IMAGE_TAG 450963613371.dkr.ecr.eu-west-2.amazonaws.com/myapp:$IMAGE_TAG
+        docker push 450963613371.dkr.ecr.eu-west-2.amazonaws.com/myapp:$IMAGE_TAG
 
     - name: Update EKS deployment
       run: |
+        IMAGE_TAG=${{ github.sha }}
         aws eks update-kubeconfig --name myapp-cluster --region eu-west-2
-        kubectl set image deployment/myapp-deployment myapp=450963613371.dkr.ecr.eu-west-2.amazonaws.com/myapp:latest
+        kubectl set image deployment/myapp-deployment myapp=450963613371.dkr.ecr.eu-west-2.amazonaws.com/myapp:$IMAGE_TAG
