@@ -17,6 +17,13 @@ spec:
         image: 450963613371.dkr.ecr.eu-west-2.amazonaws.com/myapp:v4
         ports:
         - containerPort: 5000
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
         livenessProbe:
           httpGet:
             path: /
