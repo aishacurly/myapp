@@ -58,27 +58,27 @@ This project covers the full DevOps lifecycle from local development to producti
 
 Every push to main automatically:
 
-1. **Tests** — pytest runs 3 tests against the Flask app
-2. **Security scan** — detect-secrets checks for committed credentials
-3. **Vulnerability scan** — Trivy scans the Docker image for CVEs
-4. **Build** — Docker image built and tagged with unique commit SHA
-5. **Push** — Image pushed to AWS ECR
-6. **Deploy staging** — Rolling update to staging namespace
-7. **Approval gate** — Human must approve before production
-8. **Deploy production** — Rolling update to production namespace
+1. **Tests** - pytest runs 3 tests against the Flask app
+2. **Security scan** - detect-secrets checks for committed credentials
+3. **Vulnerability scan** - Trivy scans the Docker image for CVEs
+4. **Build** - Docker image built and tagged with unique commit SHA
+5. **Push** - Image pushed to AWS ECR
+6. **Deploy staging** - Rolling update to staging namespace
+7. **Approval gate** - Human must approve before production
+8. **Deploy production** - Rolling update to production namespace
 
 ---
 
 ## Kubernetes Features
 
-- **Namespaces** — development, staging, production environments isolated in one cluster
-- **Deployments** — 2 replicas with rolling update strategy
-- **Health checks** — liveness probe every 15s, readiness probe every 10s
-- **Resource limits** — CPU and memory requests/limits on every pod
-- **HPA** — auto-scales from 2 to 10 pods based on CPU usage
-- **RBAC** — role-based access control with least privilege
-- **Helm** — custom chart for repeatable deployments
-- **ArgoCD** — GitOps, cluster syncs automatically with GitHub
+- **Namespaces** - development, staging, production environments isolated in one cluster
+- **Deployments** - 2 replicas with rolling update strategy
+- **Health checks** - liveness probe every 15s, readiness probe every 10s
+- **Resource limits** - CPU and memory requests/limits on every pod
+- **HPA** - auto-scales from 2 to 10 pods based on CPU usage
+- **RBAC** - role-based access control with least privilege
+- **Helm** - custom chart for repeatable deployments
+- **ArgoCD** - GitOps, cluster syncs automatically with GitHub
 
 ---
 
@@ -111,23 +111,23 @@ terraform destroy
 
 ## Security
 
-- **Non-root containers** — app runs as appuser not root
-- **Multi-stage Docker builds** — minimal attack surface
-- **Trivy scanning** — blocks CRITICAL vulnerabilities from reaching production
-- **Secrets Manager** — no hardcoded credentials anywhere
-- **Private subnets** — pods not directly accessible from internet
-- **Security Groups** — least privilege network access
-- **IAM roles** — nodes have only the permissions they need
+- **Non-root containers** - app runs as appuser not root
+- **Multi-stage Docker builds** - minimal attack surface
+- **Trivy scanning** - blocks CRITICAL vulnerabilities from reaching production
+- **Secrets Manager** - no hardcoded credentials anywhere
+- **Private subnets** - pods not directly accessible from internet
+- **Security Groups** - least privilege network access
+- **IAM roles** - nodes have only the permissions they need
 
 ---
 
 ## Monitoring
 
-- **Prometheus** — scrapes metrics every 15 seconds
-- **Grafana** — real-time dashboards for CPU, memory, network
-- **AlertManager** — fires alerts when pods go down
-- **Custom alerts** — PodDown alert for default namespace
-- **Resource tracking** — CPU and memory limits visible per pod
+- **Prometheus** - scrapes metrics every 15 seconds
+- **Grafana** - real-time dashboards for CPU, memory, network
+- **AlertManager** - fires alerts when pods go down
+- **Custom alerts** - PodDown alert for default namespace
+- **Resource tracking** - CPU and memory limits visible per pod
 
 ---
 
@@ -187,16 +187,16 @@ pytest test_app.py -v
 
 ## AWS Services used
 
-- **EKS** — Kubernetes cluster
-- **ECR** — Docker image registry
-- **RDS** — PostgreSQL database
-- **S3** — File storage
-- **Lambda** — Serverless functions
-- **Secrets Manager** — Encrypted secrets storage
-- **VPC** — Private networking
-- **IAM** — Access control
-- **Load Balancer** — Traffic distribution
-- **NAT Gateway** — Outbound internet for private subnets
+- **EKS** - Kubernetes cluster
+- **ECR** - Docker image registry
+- **RDS** - PostgreSQL database
+- **S3** - File storage
+- **Lambda** - Serverless functions
+- **Secrets Manager** - Encrypted secrets storage
+- **VPC** - Private networking
+- **IAM** - Access control
+- **Load Balancer** - Traffic distribution
+- **NAT Gateway** - Outbound internet for private subnets
 
 ---
 
@@ -204,7 +204,7 @@ pytest test_app.py -v
 
 - Linux (Ubuntu/WSL) terminal proficiency
 - Docker containerisation and security hardening
-- Kubernetes — deployments, services, scaling, RBAC, Helm, ArgoCD
+- Kubernetes - deployments, services, scaling, RBAC, Helm, ArgoCD
 - AWS cloud infrastructure
 - CI/CD pipeline design and implementation
 - Infrastructure as Code with Terraform
