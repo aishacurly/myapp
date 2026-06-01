@@ -1,4 +1,4 @@
-# MyApp - Production DevOps Project on AWS EKS
+# MyApp: Production DevOps Project on AWS EKS
 
 A Python Flask web application deployed to AWS Elastic Kubernetes Service (EKS) with a complete production-grade DevOps pipeline built entirely from scratch.
 
