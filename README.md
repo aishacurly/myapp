@@ -51,21 +51,15 @@ This project covers the full DevOps lifecycle from local development to producti
 
 ## Architecture
 
-## Architecture
+**Request flow:**
+Internet → Load Balancer (public subnet) → EKS Worker Nodes (private subnet) → App Pods (2 replicas, HPA 2-10) → RDS PostgreSQL, S3, Secrets Manager
 
-Internet → Load Balancer (public subnet)
-        → EKS Worker Nodes (private subnet)
-        → App Pods (2 replicas, HPA 2-10)
-        → AWS Services:
-           RDS PostgreSQL (private subnet)
-           S3 (file storage)
-           Secrets Manager (credentials)
-
-Monitoring:   Prometheus + Grafana + AlertManager
-GitOps:       ArgoCD (auto-syncs with GitHub)
-CI/CD:        GitHub Actions (5-job pipeline)
-IaC:          Terraform (57 AWS resources)
-Security:     Trivy + RBAC + private subnets
+**Supporting systems:**
+- **Monitoring:** Prometheus + Grafana + AlertManager
+- **GitOps:** ArgoCD (auto-syncs with GitHub)
+- **CI/CD:** GitHub Actions (5-job pipeline)
+- **IaC:** Terraform (57 AWS resources)
+- **Security:** Trivy + RBAC + private subnets
 
 ---
 
