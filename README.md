@@ -2,8 +2,6 @@
 
 A Python Flask web application deployed to AWS Elastic Kubernetes Service (EKS) with a complete production-grade DevOps pipeline built entirely from scratch.
 
----
-
 ## What this project demonstrates
 
 This project covers the full DevOps lifecycle from local development to production deployment:
@@ -52,6 +50,23 @@ This project covers the full DevOps lifecycle from local development to producti
 ---
 
 ## Architecture
+
+## Architecture
+
+Internet → Load Balancer (public subnet)
+        → EKS Worker Nodes (private subnet)
+        → App Pods (2 replicas, HPA 2-10)
+        → AWS Services:
+           RDS PostgreSQL (private subnet)
+           S3 (file storage)
+           Secrets Manager (credentials)
+
+Monitoring:   Prometheus + Grafana + AlertManager
+GitOps:       ArgoCD (auto-syncs with GitHub)
+CI/CD:        GitHub Actions (5-job pipeline)
+IaC:          Terraform (57 AWS resources)
+Security:     Trivy + RBAC + private subnets
+
 ---
 
 ## CI/CD Pipeline
@@ -66,6 +81,7 @@ Every push to main automatically:
 6. **Deploy staging** - Rolling update to staging namespace
 7. **Approval gate** - Human must approve before production
 8. **Deploy production** - Rolling update to production namespace
+<img width="1280" height="351" alt="Picture12Screenshot6Git" src="https://github.com/user-attachments/assets/c994bcb5-01fa-4ae8-aeb6-0aeba591fa48" />
 
 ---
 
@@ -79,6 +95,7 @@ Every push to main automatically:
 - **RBAC** - role-based access control with least privilege
 - **Helm** - custom chart for repeatable deployments
 - **ArgoCD** - GitOps, cluster syncs automatically with GitHub
+<img width="1102" height="253" alt="Screenshot 5 — kubectl pods + nodes" src="https://github.com/user-attachments/assets/29e24922-e402-47d8-8413-2ac117cadc3a" />
 
 ---
 
@@ -106,6 +123,7 @@ aws eks update-kubeconfig --name myapp-terraform-cluster --region eu-west-2
 # Destroy everything
 terraform destroy
 ```
+<img width="776" height="720" alt="Screenshot 7 — terraform-eks repo on GitHub" src="https://github.com/user-attachments/assets/b50857ff-b4db-4b6f-9d33-3a0cf1d8c2b6" />
 
 ---
 
@@ -128,6 +146,10 @@ terraform destroy
 - **AlertManager** - fires alerts when pods go down
 - **Custom alerts** - PodDown alert for default namespace
 - **Resource tracking** - CPU and memory limits visible per pod
+<img width="1280" height="424" alt="Grafana CPU dashboard" src="https://github.com/user-attachments/assets/c2311ae4-610c-47b2-8716-d04de4e35b94" />
+<img width="1270" height="355" alt="Screenshot 2 — Grafana Memory dashboard" src="https://github.com/user-attachments/assets/e51fd567-32e4-4908-ba74-2c1b20bfa82d" />
+<img width="1280" height="267" alt="Screenshot 3 — Prometheus query" src="https://github.com/user-attachments/assets/1d3c5a8b-350d-4350-a5fd-0979834becd8" />
+<img width="1137" height="482" alt="Screenshot 4 — AlertManager alerts" src="https://github.com/user-attachments/assets/39d5344f-4eeb-4883-b782-7f57f2e7298d" />
 
 ---
 
