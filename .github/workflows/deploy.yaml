@@ -85,8 +85,7 @@ jobs:
       run: |
         IMAGE=${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}:${{ github.sha }}
         docker build -t $IMAGE .
-        docker push $IMAGEcd ~/myapp
-nano .github/workflows/deploy.yaml
+        docker push $IMAGE
 
   deploy-staging:
     name: Deploy to Staging
