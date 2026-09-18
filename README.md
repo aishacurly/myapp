@@ -60,7 +60,10 @@ Internet → Load Balancer (public subnet) → EKS Worker Nodes (private subnet)
 - **CI/CD:** GitHub Actions (5-job pipeline)
 - **IaC:** Terraform (57 AWS resources)
 - **Security:** Trivy + RBAC + private subnets
-<img width="3375" height="3375" alt="Blue Minimalist International Civil Aviation Day Instagram Post " src="https://github.com/user-attachments/assets/cdf830e5-d49b-4f97-a0dc-fcde733a8ca1" />
+
+<img width="1200" height="896" alt="modify_the_aws_cloud_architecture_diagram_from_data_image_image_1_strictly" src="https://github.com/user-attachments/assets/98ad7bec-e5e5-413f-961c-ca12a9b32261" />
+
+
 
 ---
 
