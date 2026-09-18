@@ -1,4 +1,4 @@
-<img width="1080" height="1080" alt="Blue Minimalist International Civil Aviation Day Instagram Post " src="https://github.com/user-attachments/assets/3d130087-86bd-4eeb-a450-d4a6133911af" /># MyApp: Production DevOps Project on AWS EKS
+# MyApp: Production DevOps Project on AWS EKS
 
 A Python Flask web application deployed to AWS Elastic Kubernetes Service (EKS) with a complete production-grade DevOps pipeline built entirely from scratch.
 
@@ -60,10 +60,7 @@ Internet → Load Balancer (public subnet) → EKS Worker Nodes (private subnet)
 - **CI/CD:** GitHub Actions (5-job pipeline)
 - **IaC:** Terraform (57 AWS resources)
 - **Security:** Trivy + RBAC + private subnets
-
-<img width="3375" height="3375" alt="Blue Minimalist International Civil Aviation Day Instagram Post " src="https://github.com/user-attachments/assets/073f2f78-09ad-4277-9a90-bc0b14426885" />
-
-
+<img width="3375" height="3375" alt="Blue Minimalist International Civil Aviation Day Instagram Post " src="https://github.com/user-attachments/assets/cdf830e5-d49b-4f97-a0dc-fcde733a8ca1" />
 
 ---
 
